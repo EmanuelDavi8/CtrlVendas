@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-BR" style="">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="web_standard" name="shell-type">
+    <title>CtrlVendas</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+    <style>
+        @layer base {
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                overscroll-behavior: none;
+            }
+
+            main>:first-child {
+                margin-top: 0 !important;
+            }
+
+            main>:last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+        id="tailwind-config">tailwind.config = { "darkMode": "class", "theme": { "extend": { "colors": { "surface-dim": "#cbdbf5", "tertiary": "#005b7c", "error-container": "#ffdad6", "error": "#ba1a1a", "on-tertiary-fixed": "#001e2c", "inverse-surface": "#213145", "on-secondary-fixed-variant": "#173bab", "primary": "#004ac6", "surface-container": "#e5eeff", "on-background": "#0b1c30", "surface-container-low": "#eff4ff", "on-secondary-container": "#00217a", "on-error": "#ffffff", "primary-fixed-dim": "#b4c5ff", "on-primary-container": "#eeefff", "surface-tint": "#0053db", "on-tertiary-fixed-variant": "#004c69", "surface-container-highest": "#d3e4fe", "surface-bright": "#f8f9ff", "on-tertiary": "#ffffff", "surface-variant": "#d3e4fe", "on-primary-fixed": "#00174b", "on-surface-variant": "#434655", "primary-container": "#2563eb", "background": "#f8f9ff", "outline-variant": "#c3c6d7", "surface": "#f8f9ff", "on-primary-fixed-variant": "#003ea8", "on-error-container": "#93000a", "secondary": "#3755c3", "primary-fixed": "#dbe1ff", "secondary-container": "#708cfd", "inverse-primary": "#b4c5ff", "tertiary-fixed": "#c4e7ff", "on-tertiary-container": "#e1f2ff", "surface-container-lowest": "#ffffff", "secondary-fixed-dim": "#b8c4ff", "outline": "#737686", "on-surface": "#0b1c30", "on-secondary": "#ffffff", "secondary-fixed": "#dde1ff", "surface-container-high": "#dce9ff", "on-primary": "#ffffff", "tertiary-container": "#00759f", "on-secondary-fixed": "#001453", "inverse-on-surface": "#eaf1ff", "tertiary-fixed-dim": "#7bd0ff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-sm": "0.5rem", "gutter": "1rem", "space-md": "1rem", "space-xl": "2rem", "space-xs": "0.25rem", "margin": "1rem", "margin-md": "1.5rem", "space-lg": "1.5rem", "gutter-lg": "1.5rem", "margin-lg": "2rem" }, "fontFamily": { "label-md": ["Inter"], "label-sm": ["Inter"], "body-md": ["Inter"], "headline-xl-mobile": ["Inter"], "body-lg": ["Inter"], "headline-lg": ["Inter"], "headline-md": ["Inter"], "headline-sm": ["Inter"], "numerical-data": ["Inter"], "body-sm": ["Inter"], "display-lg": ["Inter"], "label-lg": ["Inter"], "headline-xl": ["Inter"] }, "fontSize": { "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "headline-xl-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "numerical-data": ["14px", { "lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-xl": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } };</script>
+</head>
+
+<body class="bg-surface font-body-md text-on-surface antialiased selection:bg-surface-container-highest">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    </header>
+    <main class="w-full bg-surface min-h-screen">
+        <div class="flex flex-col w-full">
+            <div class="px-margin-lg max-w-[1440px] w-full mx-auto flex flex-col gap-space-xl py-space-md">
+                <!-- Header Section -->
+                <div class="flex flex-col gap-space-xs">
+                    <h1 class="font-display-lg text-display-lg text-on-surface tracking-tight">Histórico de Vendas</h1>
+                </div>
+                <!-- Metric KPI Tiles -->
+
+                <!-- Active Visual Insight Banner -->
+
+                <!-- Quick Search & Status Legend -->
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-space-md">
+                    <div class="relative w-full sm:w-96">
+                        <span
+                            class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">search</span>
+                        <input
+                            class="w-full h-10 pl-9 pr-12 rounded-lg bg-surface-container-lowest shadow-sm text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary-container transition-all"
+                            placeholder="Buscar por ID (#TX-1042) ou nome do item..." type="text">
+                        <span
+                            class="absolute right-3 top-2.5 text-[10px] uppercase font-bold text-outline-variant bg-surface-container px-1.5 py-0.5 rounded">⌘K</span>
+                    </div>
+                    <div class="flex items-center gap-space-md text-on-surface-variant font-label-sm text-label-sm">
+                        <span class="flex items-center gap-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span> Concluída
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span> Saída de Estoque
+                        </span>
+                        <span class="text-outline">|</span>
+                        <button class="flex items-center gap-1 hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined text-[16px]">tune</span> Filtros Avançados
+                        </button>
+                    </div>
+                </div>
+                <!-- Detailed Grouped Sales Ledger -->
+                <div class="flex flex-col gap-space-lg">
+                    <!-- TRANSAÇÃO 1 -->
+                    <div
+                        class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all hover:shadow-md">
+                        <!-- Group Header -->
+                        <div
+                            class="bg-surface-container-low px-space-lg py-space-md flex flex-wrap items-center justify-between gap-space-md">
+                            <div class="flex flex-wrap items-center gap-space-md">
+                                <div
+                                    class="flex items-center gap-space-xs text-on-surface font-headline-sm text-headline-sm">
+                                    <span class="material-symbols-outlined text-primary text-[20px]">schedule</span>
+                                    <span class="">15/10/2023 às 14:35</span>
+                                </div>
+                                <div
+                                    class="px-space-sm py-0.5 rounded-md bg-surface-container text-on-surface-variant font-numerical-data text-numerical-data font-semibold">
+                                    Pedido #TX-1042
+                                </div>
+                                <div
+                                    class="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-emerald-100 text-emerald-800 font-semibold">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                                    Concluída
+                                </div>
+                                <div
+                                    class="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container text-primary font-semibold">
+                                    <span class="material-symbols-outlined text-[14px]">inventory</span>
+                                    Saída de Estoque
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-space-xl">
+                                <div class="text-right">
+                                    <span
+                                        class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Total
+                                        da Transação</span>
+                                    <span
+                                        class="font-headline-md text-headline-md text-on-surface text-primary-container font-bold">R$
+                                        205,00</span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Group Item Table -->
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr
+                                        class="bg-surface-bright text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+                                        <th class="py-space-sm px-space-lg">Data e Hora</th>
+                                        <th class="py-space-sm px-space-md">ID Pedido</th>
+                                        <th class="py-space-sm px-space-md">Nome do Produto</th>
+                                        <th class="py-space-sm px-space-md text-right">Preço Unit.</th>
+                                        <th class="py-space-sm px-space-md text-center">Quantidade</th>
+                                        <th class="py-space-sm px-space-lg text-right">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody
+                                    class="divide-y divide-surface-container-low text-on-surface font-body-md text-body-md">
+                                    <tr class="hover:bg-surface-bright/70 transition-colors">
+                                        <td
+                                            class="py-3 px-space-lg text-on-surface-variant font-numerical-data text-numerical-data">
+                                            15/10/2023 14:35</td>
+                                        <td
+                                            class="py-3 px-space-md font-numerical-data text-numerical-data text-primary font-medium">
+                                            #TX-1042</td>
+                                        <td class="py-3 px-space-md">
+                                            <div class="flex items-center gap-space-sm">
+                                                <div
+                                                    class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-container shrink-0">
+                                                    <span class="material-symbols-outlined text-[18px]">checkroom</span>
+                                                </div>
+                                                <span class="font-medium">Camiseta Básica Algodão Premium</span>
+                                            </div>
+                                        </td>
+                                        <td
+                                            class="py-3 px-space-md text-right font-numerical-data text-numerical-data text-on-surface-variant">
+                                            R$ 45,00</td>
+                                        <td class="py-3 px-space-md text-center">
+                                            <span
+                                                class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-numerical-data text-numerical-data font-semibold">3
+                                                un</span>
+                                        </td>
+                                        <td
+                                            class="py-3 px-space-lg text-right font-numerical-data text-numerical-data font-bold text-on-surface">
+                                            R$ 135,00</td>
+                                    </tr>
+                                    <tr class="hover:bg-surface-bright/70 transition-colors">
+                                        <td
+                                            class="py-3 px-space-lg text-on-surface-variant font-numerical-data text-numerical-data">
+                                            15/10/2023 14:35</td>
+                                        <td
+                                            class="py-3 px-space-md font-numerical-data text-numerical-data text-primary font-medium">
+                                            #TX-1042</td>
+                                        <td class="py-3 px-space-md">
+                                            <div class="flex items-center gap-space-sm">
+                                                <div
+                                                    class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-container shrink-0">
+                                                    <span
+                                                        class="material-symbols-outlined text-[18px]">sports_baseball</span>
+                                                </div>
+                                                <span class="font-medium">Boné Trucker Vintage</span>
+                                            </div>
+                                        </td>
+                                        <td
+                                            class="py-3 px-space-md text-right font-numerical-data text-numerical-data text-on-surface-variant">
+                                            R$ 35,00</td>
+                                        <td class="py-3 px-space-md text-center">
+                                            <span
+                                                class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-numerical-data text-numerical-data font-semibold">2
+                                                un</span>
+                                        </td>
+                                        <td
+                                            class="py-3 px-space-lg text-right font-numerical-data text-numerical-data font-bold text-on-surface">
+                                            R$ 70,00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- TRANSAÇÃO 2 -->
+                    <div
+                        class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all hover:shadow-md">
+                        <!-- Group Header -->
+                        <div
+                            class="bg-surface-container-low px-space-lg py-space-md flex flex-wrap items-center justify-between gap-space-md">
+                            <div class="flex flex-wrap items-center gap-space-md">
+                                <div
+                                    class="flex items-center gap-space-xs text-on-surface font-headline-sm text-headline-sm">
+                                    <span class="material-symbols-outlined text-primary text-[20px]">schedule</span>
+                                    <span class="">15/10/2023 às 11:20</span>
+                                </div>
+                                <div
+                                    class="px-space-sm py-0.5 rounded-md bg-surface-container text-on-surface-variant font-numerical-data text-numerical-data font-semibold">
+                                    Pedido #TX-1041
+                                </div>
+                                <div
+                                    class="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-emerald-100 text-emerald-800 font-semibold">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                                    Concluída
+                                </div>
+                                <div
+                                    class="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container text-primary font-semibold">
+                                    <span class="material-symbols-outlined text-[14px]">inventory</span>
+                                    Saída de Estoque
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-space-xl">
+                                <div class="text-right">
+                                    <span
+                                        class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Total
+                                        da Transação</span>
+                                    <span
+                                        class="font-headline-md text-headline-md text-on-surface text-primary-container font-bold">R$
+                                        228,00</span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Group Item Table -->
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr
+                                        class="bg-surface-bright text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+                                        <th class="py-space-sm px-space-lg">Data e Hora</th>
+                                        <th class="py-space-sm px-space-md">ID Pedido</th>
+                                        <th class="py-space-sm px-space-md">Nome do Produto</th>
+                                        <th class="py-space-sm px-space-md text-right">Preço Unit.</th>
+                                        <th class="py-space-sm px-space-md text-center">Quantidade</th>
+                                        <th class="py-space-sm px-space-lg text-right">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody
+                                    class="divide-y divide-surface-container-low text-on-surface font-body-md text-body-md">
+                                    <tr class="hover:bg-surface-bright/70 transition-colors">
+                                        <td
+                                            class="py-3 px-space-lg text-on-surface-variant font-numerical-data text-numerical-data">
+                                            15/10/2023 11:20</td>
+                                        <td
+                                            class="py-3 px-space-md font-numerical-data text-numerical-data text-primary font-medium">
+                                            #TX-1041</td>
+                                        <td class="py-3 px-space-md">
+                                            <div class="flex items-center gap-space-sm">
+                                                <div
+                                                    class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-container shrink-0">
+                                                    <span class="material-symbols-outlined text-[18px]">footprint</span>
+                                                </div>
+                                                <span class="font-medium">Tênis Runner Esportivo Pro</span>
+                                            </div>
+                                        </td>
+                                        <td
+                                            class="py-3 px-space-md text-right font-numerical-data text-numerical-data text-on-surface-variant">
+                                            R$ 180,00</td>
+                                        <td class="py-3 px-space-md text-center">
+                                            <span
+                                                class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-numerical-data text-numerical-data font-semibold">1
+                                                un</span>
+                                        </td>
+                                        <td
+                                            class="py-3 px-space-lg text-right font-numerical-data text-numerical-data font-bold text-on-surface">
+                                            R$ 180,00</td>
+                                    </tr>
+                                    <tr class="hover:bg-surface-bright/70 transition-colors">
+                                        <td
+                                            class="py-3 px-space-lg text-on-surface-variant font-numerical-data text-numerical-data">
+                                            15/10/2023 11:20</td>
+                                        <td
+                                            class="py-3 px-space-md font-numerical-data text-numerical-data text-primary font-medium">
+                                            #TX-1041</td>
+                                        <td class="py-3 px-space-md">
+                                            <div class="flex items-center gap-space-sm">
+                                                <div
+                                                    class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-container shrink-0">
+                                                    <span class="material-symbols-outlined text-[18px]">layers</span>
+                                                </div>
+                                                <span class="font-medium">Meia Cano Médio Pack 3x</span>
+                                            </div>
+                                        </td>
+                                        <td
+                                            class="py-3 px-space-md text-right font-numerical-data text-numerical-data text-on-surface-variant">
+                                            R$ 24,00</td>
+                                        <td class="py-3 px-space-md text-center">
+                                            <span
+                                                class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-numerical-data text-numerical-data font-semibold">2
+                                                un</span>
+                                        </td>
+                                        <td
+                                            class="py-3 px-space-lg text-right font-numerical-data text-numerical-data font-bold text-on-surface">
+                                            R$ 48,00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- TRANSAÇÃO 3 -->
+                    <div
+                        class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all hover:shadow-md">
+                        <!-- Group Header -->
+                        <div
+                            class="bg-surface-container-low px-space-lg py-space-md flex flex-wrap items-center justify-between gap-space-md">
+                            <div class="flex flex-wrap items-center gap-space-md">
+                                <div
+                                    class="flex items-center gap-space-xs text-on-surface font-headline-sm text-headline-sm">
+                                    <span class="material-symbols-outlined text-primary text-[20px]">schedule</span>
+                                    <span class="">14/10/2023 às 17:05</span>
+                                </div>
+                                <div
+                                    class="px-space-sm py-0.5 rounded-md bg-surface-container text-on-surface-variant font-numerical-data text-numerical-data font-semibold">
+                                    Pedido #TX-1040
+                                </div>
+                                <div
+                                    class="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-emerald-100 text-emerald-800 font-semibold">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                                    Concluída
+                                </div>
+                                <div
+                                    class="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container text-primary font-semibold">
+                                    <span class="material-symbols-outlined text-[14px]">inventory</span>
+                                    Saída de Estoque
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-space-xl">
+                                <div class="text-right">
+                                    <span
+                                        class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Total
+                                        da Transação</span>
+                                    <span
+                                        class="font-headline-md text-headline-md text-on-surface text-primary-container font-bold">R$
+                                        270,00</span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Group Item Table -->
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr
+                                        class="bg-surface-bright text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+                                        <th class="py-space-sm px-space-lg">Data e Hora</th>
+                                        <th class="py-space-sm px-space-md">ID Pedido</th>
+                                        <th class="py-space-sm px-space-md">Nome do Produto</th>
+                                        <th class="py-space-sm px-space-md text-right">Preço Unit.</th>
+                                        <th class="py-space-sm px-space-md text-center">Quantidade</th>
+                                        <th class="py-space-sm px-space-lg text-right">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody
+                                    class="divide-y divide-surface-container-low text-on-surface font-body-md text-body-md">
+                                    <tr class="hover:bg-surface-bright/70 transition-colors">
+                                        <td
+                                            class="py-3 px-space-lg text-on-surface-variant font-numerical-data text-numerical-data">
+                                            14/10/2023 17:05</td>
+                                        <td
+                                            class="py-3 px-space-md font-numerical-data text-numerical-data text-primary font-medium">
+                                            #TX-1040</td>
+                                        <td class="py-3 px-space-md">
+                                            <div class="flex items-center gap-space-sm">
+                                                <div
+                                                    class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-container shrink-0">
+                                                    <span class="material-symbols-outlined text-[18px]">backpack</span>
+                                                </div>
+                                                <span class="font-medium">Mochila Urbana Impermeável</span>
+                                            </div>
+                                        </td>
+                                        <td
+                                            class="py-3 px-space-md text-right font-numerical-data text-numerical-data text-on-surface-variant">
+                                            R$ 140,00</td>
+                                        <td class="py-3 px-space-md text-center">
+                                            <span
+                                                class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-numerical-data text-numerical-data font-semibold">1
+                                                un</span>
+                                        </td>
+                                        <td
+                                            class="py-3 px-space-lg text-right font-numerical-data text-numerical-data font-bold text-on-surface">
+                                            R$ 140,00</td>
+                                    </tr>
+                                    <tr class="hover:bg-surface-bright/70 transition-colors">
+                                        <td
+                                            class="py-3 px-space-lg text-on-surface-variant font-numerical-data text-numerical-data">
+                                            14/10/2023 17:05</td>
+                                        <td
+                                            class="py-3 px-space-md font-numerical-data text-numerical-data text-primary font-medium">
+                                            #TX-1040</td>
+                                        <td class="py-3 px-space-md">
+                                            <div class="flex items-center gap-space-sm">
+                                                <div
+                                                    class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-container shrink-0">
+                                                    <span
+                                                        class="material-symbols-outlined text-[18px]">local_drink</span>
+                                                </div>
+                                                <span class="font-medium">Garrafa Térmica Inox 750ml</span>
+                                            </div>
+                                        </td>
+                                        <td
+                                            class="py-3 px-space-md text-right font-numerical-data text-numerical-data text-on-surface-variant">
+                                            R$ 65,00</td>
+                                        <td class="py-3 px-space-md text-center">
+                                            <span
+                                                class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-numerical-data text-numerical-data font-semibold">2
+                                                un</span>
+                                        </td>
+                                        <td
+                                            class="py-3 px-space-lg text-right font-numerical-data text-numerical-data font-bold text-on-surface">
+                                            R$ 130,00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- TRANSAÇÃO 4 -->
+                    <div
+                        class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all hover:shadow-md">
+                        <!-- Group Header -->
+                        <div
+                            class="bg-surface-container-low px-space-lg py-space-md flex flex-wrap items-center justify-between gap-space-md">
+                            <div class="flex flex-wrap items-center gap-space-md">
+                                <div
+                                    class="flex items-center gap-space-xs text-on-surface font-headline-sm text-headline-sm">
+                                    <span class="material-symbols-outlined text-primary text-[20px]">schedule</span>
+                                    <span class="">14/10/2023 às 10:15</span>
+                                </div>
+                                <div
+                                    class="px-space-sm py-0.5 rounded-md bg-surface-container text-on-surface-variant font-numerical-data text-numerical-data font-semibold">
+                                    Pedido #TX-1039
+                                </div>
+                                <div
+                                    class="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-emerald-100 text-emerald-800 font-semibold">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                                    Concluída
+                                </div>
+                                <div
+                                    class="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container text-primary font-semibold">
+                                    <span class="material-symbols-outlined text-[14px]">inventory</span>
+                                    Saída de Estoque
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-space-xl">
+                                <div class="text-right">
+                                    <span
+                                        class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Total
+                                        da Transação</span>
+                                    <span
+                                        class="font-headline-md text-headline-md text-on-surface text-primary-container font-bold">R$
+                                        225,00</span>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- Group Item Table -->
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr
+                                        class="bg-surface-bright text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+                                        <th class="py-space-sm px-space-lg">Data e Hora</th>
+                                        <th class="py-space-sm px-space-md">ID Pedido</th>
+                                        <th class="py-space-sm px-space-md">Nome do Produto</th>
+                                        <th class="py-space-sm px-space-md text-right">Preço Unit.</th>
+                                        <th class="py-space-sm px-space-md text-center">Quantidade</th>
+                                        <th class="py-space-sm px-space-lg text-right">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody
+                                    class="divide-y divide-surface-container-low text-on-surface font-body-md text-body-md">
+                                    <tr class="hover:bg-surface-bright/70 transition-colors">
+                                        <td
+                                            class="py-3 px-space-lg text-on-surface-variant font-numerical-data text-numerical-data">
+                                            14/10/2023 10:15</td>
+                                        <td
+                                            class="py-3 px-space-md font-numerical-data text-numerical-data text-primary font-medium">
+                                            #TX-1039</td>
+                                        <td class="py-3 px-space-md">
+                                            <div class="flex items-center gap-space-sm">
+                                                <div
+                                                    class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary-container shrink-0">
+                                                    <span class="material-symbols-outlined text-[18px]">checkroom</span>
+                                                </div>
+                                                <span class="font-medium">Camiseta Básica Algodão Premium</span>
+                                            </div>
+                                        </td>
+                                        <td
+                                            class="py-3 px-space-md text-right font-numerical-data text-numerical-data text-on-surface-variant">
+                                            R$ 45,00</td>
+                                        <td class="py-3 px-space-md text-center">
+                                            <span
+                                                class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-numerical-data text-numerical-data font-semibold">5
+                                                un</span>
+                                        </td>
+                                        <td
+                                            class="py-3 px-space-lg text-right font-numerical-data text-numerical-data font-bold text-on-surface">
+                                            R$ 225,00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination & Audit Summary Footer -->
+                <div
+                    class="flex flex-col sm:flex-row items-center justify-between gap-space-md py-space-sm px-space-md bg-surface-container-lowest rounded-xl shadow-sm">
+                    <div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+                        <span class="">Mostrando</span>
+                        <span class="font-semibold text-on-surface">4 de 18 transações</span>
+                        <span class="">(7 itens listados)</span>
+                    </div>
+                    <div class="flex items-center gap-space-sm">
+                        <button
+                            class="px-space-md py-1.5 rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-label-md text-label-md transition-colors flex items-center gap-1 opacity-60 cursor-not-allowed"
+                            disabled="">
+                            <span class="material-symbols-outlined text-[16px]">chevron_left</span> Anterior
+                        </button>
+                        <div class="flex items-center gap-1 font-numerical-data text-numerical-data">
+                            <button
+                                class="w-8 h-8 rounded-lg bg-primary text-on-primary font-bold text-center">1</button>
+                            <button
+                                class="w-8 h-8 rounded-lg hover:bg-surface-container-low text-on-surface text-center">2</button>
+                            <button
+                                class="w-8 h-8 rounded-lg hover:bg-surface-container-low text-on-surface text-center">3</button>
+                        </div>
+                        <button
+                            class="px-space-md py-1.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container font-label-md text-label-md transition-colors flex items-center gap-1">
+                            Próximo <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function setActiveFilter(button) {
+                const parent = button.parentElement;
+                parent.querySelectorAll('button').forEach(btn => {
+                    btn.className = "px-space-md py-space-xs rounded-lg font-label-md text-label-md transition-all text-on-surface-variant hover:text-on-surface";
+                });
+                button.className = "px-space-md py-space-xs rounded-lg font-label-md text-label-md transition-all bg-surface-container-lowest text-primary shadow-sm font-semibold";
+            }
+
+            document.getElementById('exportBtn').addEventListener('click', function () {
+                const originalText = this.innerHTML;
+                this.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span><span>Gerando CSV...</span>';
+                setTimeout(() => {
+                    this.innerHTML = '<span class="material-symbols-outlined text-[18px]">done</span><span>Relatório Pronto</span>';
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                    }, 2000);
+                }, 1200);
+            });
+        </script>
+    </main>
+
+
+
+
+
+</body>
+
+</html>

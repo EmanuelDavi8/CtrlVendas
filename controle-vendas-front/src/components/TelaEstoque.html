@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    name="viewport">
+  <meta content="mobile_tab" name="shell-type">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    @layer base {
+
+      html,
+      body {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        overscroll-behavior: none;
+      }
+
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+
+      .pt-safe {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+
+      main>:first-child {
+        margin-top: 0 !important;
+      }
+
+      main>:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script
+    id="tailwind-config">tailwind.config = { "darkMode": "class", "theme": { "extend": { "colors": { "outline-variant": "#c3c6d7", "on-background": "#0b1c30", "inverse-primary": "#b4c5ff", "on-surface": "#0b1c30", "on-secondary-container": "#00217a", "tertiary": "#005b7c", "on-error": "#ffffff", "on-primary-fixed-variant": "#003ea8", "on-secondary-fixed": "#001453", "primary": "#004ac6", "on-tertiary-fixed": "#001e2c", "on-tertiary": "#ffffff", "tertiary-fixed-dim": "#7bd0ff", "on-surface-variant": "#434655", "surface-bright": "#f8f9ff", "tertiary-fixed": "#c4e7ff", "on-primary": "#ffffff", "primary-fixed-dim": "#b4c5ff", "primary-container": "#2563eb", "on-secondary-fixed-variant": "#173bab", "surface": "#f8f9ff", "surface-container-highest": "#d3e4fe", "primary-fixed": "#dbe1ff", "secondary-fixed-dim": "#b8c4ff", "background": "#f8f9ff", "tertiary-container": "#00759f", "secondary-container": "#708cfd", "on-primary-fixed": "#00174b", "surface-dim": "#cbdbf5", "surface-container-low": "#eff4ff", "on-tertiary-container": "#e1f2ff", "surface-container": "#e5eeff", "surface-variant": "#d3e4fe", "on-primary-container": "#eeefff", "inverse-on-surface": "#eaf1ff", "on-secondary": "#ffffff", "secondary-fixed": "#dde1ff", "inverse-surface": "#213145", "on-tertiary-fixed-variant": "#004c69", "secondary": "#3755c3", "outline": "#737686", "surface-container-high": "#dce9ff", "surface-tint": "#0053db", "error": "#ba1a1a", "surface-container-lowest": "#ffffff", "error-container": "#ffdad6", "on-error-container": "#93000a" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-lg": "1.5rem", "gutter-lg": "1.5rem", "space-sm": "0.5rem", "margin": "1rem", "margin-lg": "2rem", "space-xl": "2rem", "gutter": "1rem", "margin-md": "1.5rem", "space-md": "1rem", "space-xs": "0.25rem" }, "fontFamily": { "label-md": ["Inter"], "headline-sm": ["Inter"], "numerical-data": ["Inter"], "headline-xl-mobile": ["Inter"], "body-sm": ["Inter"], "headline-lg": ["Inter"], "headline-md": ["Inter"], "display-lg": ["Inter"], "body-lg": ["Inter"], "headline-xl": ["Inter"], "body-md": ["Inter"], "label-lg": ["Inter"], "label-sm": ["Inter"] }, "fontSize": { "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-sm": ["16px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "numerical-data": ["14px", { "lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "headline-xl-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-xl": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }] } } } };</script>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen pb-24">
+  <main class="flex-1 flex flex-col relative w-full bg-surface py-space-md">
+    <div class="flex flex-col w-full">
+      <!-- Top Overview & Metrics -->
+      <section class="px-margin pt-space-sm pb-space-xs flex flex-col gap-3">
+        <div class="flex items-center justify-between gap-2">
+          <div>
+            <h1 class="font-headline-xl text-headline-xl font-bold text-on-surface tracking-tight">Gestão de Estoque
+            </h1>
+            <p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Controle, baixa de saída e histórico de
+              vendas</p>
+          </div>
+          <button id="btn-toggle-history"
+            class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-high text-primary font-label-md text-label-md font-semibold shrink-0 shadow-xs hover:bg-surface-variant active:scale-95 transition-all">
+            <span class="material-symbols-outlined text-[16px]">receipt_long</span>
+            <span id="history-badge-btn">Histórico (<span id="history-badge-count">0</span>)</span>
+          </button>
+        </div>
+
+        <!-- KPI Cards -->
+        <div class="grid grid-cols-3 gap-2 pt-1">
+          <div
+            class="bg-surface-container-lowest p-2.5 rounded-xl shadow-xs border border-outline-variant/30 flex flex-col">
+            <span class="text-on-surface-variant font-label-sm text-[11px] uppercase tracking-wider">Estoque
+              Total</span>
+            <span class="font-headline-sm text-headline-sm font-bold text-on-surface mt-0.5" id="metric-total-units">227
+              un</span>
+          </div>
+          <div
+            class="bg-surface-container-lowest p-2.5 rounded-xl shadow-xs border border-outline-variant/30 flex flex-col">
+            <span class="text-on-surface-variant font-label-sm text-[11px] uppercase tracking-wider">Em Estoque</span>
+            <span class="font-headline-sm text-headline-sm font-bold text-primary mt-0.5" id="metric-total-invested">R$
+              14.830</span>
+          </div>
+          <div
+            class="bg-surface-container-lowest p-2.5 rounded-xl shadow-xs border border-outline-variant/30 flex flex-col">
+            <span class="text-on-surface-variant font-label-sm text-[11px] uppercase tracking-wider">Ganhos
+              Vendas</span>
+            <span class="font-headline-sm text-headline-sm font-bold text-emerald-600 mt-0.5" id="metric-total-sales">R$
+              8.420,00</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Toolbar -->
+      <section class="px-margin pt-space-sm pb-space-xs flex flex-col gap-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Itens em Estoque</h3>
+            <span
+              class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold"
+              id="badge-products-count">6 produtos</span>
+          </div>
+          <button
+            class="inline-flex items-center gap-1.5 bg-primary hover:bg-primary-container text-on-primary px-3.5 py-2 rounded-lg font-label-lg text-label-lg shadow-sm active:scale-95 transition-all"
+            id="btn-open-create-modal">
+            <span class="material-symbols-outlined text-[18px]">add</span>
+            <span>Novo Produto</span>
+          </button>
+        </div>
+
+        <!-- Search and Sort -->
+        <div class="flex items-center gap-2">
+          <div class="relative flex-1">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+              <span class="material-symbols-outlined text-[20px]">search</span>
+            </div>
+            <input
+              class="w-full pl-10 pr-10 py-2.5 bg-surface-container-lowest text-on-surface font-body-md text-body-md rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40 placeholder:text-outline border border-outline-variant/20"
+              id="search-input" placeholder="Pesquisar produto ou código..." type="text">
+            <button
+              class="hidden absolute inset-y-0 right-0 pr-3 flex items-center text-on-surface-variant hover:text-on-surface"
+              id="btn-clear-search">
+              <span class="material-symbols-outlined text-[18px]">close</span>
+            </button>
+          </div>
+          <div class="relative shrink-0">
+            <select
+              class="appearance-none bg-surface-container-lowest border border-outline-variant/40 rounded-xl px-3 py-2.5 pr-8 font-label-md text-label-md text-on-surface font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40 cursor-pointer"
+              id="sort-select">
+              <option value="name-asc">Nome: A-Z</option>
+              <option value="name-desc">Nome: Z-A</option>
+              <option value="qty-asc">Menor estoque</option>
+              <option value="qty-desc">Maior estoque</option>
+              <option value="price-asc">Menor preço</option>
+              <option value="price-desc">Maior preço</option>
+            </select>
+            <div class="absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none text-on-surface-variant">
+              <span class="material-symbols-outlined text-[18px]">sort</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter chips -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-0.5" id="filter-chips">
+          <button
+            class="filter-chip active-filter px-3 py-1 rounded-full text-label-sm font-semibold transition-all bg-primary text-on-primary shadow-xs"
+            data-filter="all">Todos</button>
+          <button
+            class="filter-chip px-3 py-1 rounded-full text-label-sm font-semibold transition-all bg-surface-container-high text-error hover:bg-error-container/40 flex items-center gap-1"
+            data-filter="critical">
+            <span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+            <span>Baixo Estoque (≤25)</span>
+          </button>
+          <button
+            class="filter-chip px-3 py-1 rounded-full text-label-sm font-semibold transition-all bg-surface-container-high text-on-surface-variant hover:bg-surface-container"
+            data-filter="regular">Estoque Regular</button>
+        </div>
+      </section>
+
+      <!-- Products List Section -->
+      <section class="px-margin py-space-xs flex flex-col gap-space-sm mb-4">
+        <div
+          class="px-2 py-1 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+          <span>Mercadoria & Estoque</span>
+          <span>Ajuste / Ações</span>
+        </div>
+
+        <!-- Dynamic Items Container -->
+        <div class="flex flex-col gap-space-sm" id="product-list">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <!-- Empty Search State -->
+        <div
+          class="hidden flex-col items-center justify-center p-8 text-center rounded-xl bg-surface-container-lowest shadow-sm mt-2"
+          id="empty-state">
+          <div
+            class="w-14 h-14 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant mb-3">
+            <span class="material-symbols-outlined text-[28px]">search_off</span>
+          </div>
+          <h4 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Nenhum item localizado</h4>
+          <p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs mt-1">Verifique o termo digitado ou
+            cadastre um novo item.</p>
+        </div>
+      </section>
+
+      <!-- FLOATING FOOTER: Barra de Seleção / Saída Ativa -->
+      <aside id="floating-sale-bar"
+        class="fixed bottom-3 inset-x-3 z-40 transition-all duration-300 transform translate-y-24 opacity-0 pointer-events-none">
+        <div
+          class="bg-inverse-surface text-inverse-on-surface rounded-2xl p-3.5 shadow-2xl flex items-center justify-between gap-3 border border-inverse-on-surface/10 backdrop-blur-md">
+          <div class="flex items-center gap-3 min-w-0">
+            <div
+              class="w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+              <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <span class="font-label-lg text-label-lg font-bold text-inverse-on-surface" id="floating-items-count">0
+                  itens selecionados</span>
+                <span
+                  class="px-1.5 py-0.2 rounded bg-primary/20 text-primary-fixed-dim font-label-sm text-[11px] font-semibold"
+                  id="floating-prods-count">0 produtos</span>
+              </div>
+              <p class="font-body-sm text-body-sm text-outline-variant truncate">
+                Total: <strong class="text-inverse-primary" id="floating-total-preview">R$ 0,00</strong>
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center gap-1.5 shrink-0">
+            <button id="btn-clear-selection"
+              class="px-2.5 py-2 rounded-xl text-outline-variant hover:text-white font-label-md text-label-md transition-colors"
+              title="Limpar seleção">
+              Limpar
+            </button>
+            <button id="btn-open-view-modal"
+              class="bg-primary hover:bg-primary-container text-on-primary px-4 py-2 rounded-xl font-label-lg text-label-lg font-semibold shadow-md active:scale-95 transition-all flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[18px]">visibility</span>
+              <span>Visualizar</span>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <div class="fixed inset-0 z-50 hidden transition-opacity duration-300" id="modal-product">
+        <div class="absolute inset-0 bg-inverse-surface/40 backdrop-blur-sm" id="modal-product-backdrop"></div>
+        <div
+          class="absolute bottom-0 inset-x-0 bg-surface-container-lowest rounded-t-2xl shadow-xl max-h-[85vh] flex flex-col overflow-hidden transform transition-transform duration-300 translate-y-full"
+          id="modal-product-sheet">
+          <div class="w-12 h-1.5 bg-surface-variant rounded-full mx-auto mt-3"></div>
+          <div class="px-margin py-space-sm flex items-center justify-between border-b border-surface-container">
+            <div>
+              <span class="font-label-sm text-label-sm text-primary font-semibold" id="product-modal-subtitle">CADASTRO
+                DE ESTOQUE</span>
+              <h3 class="font-headline-md text-headline-md font-bold text-on-surface" id="product-modal-title">Novo
+                Produto</h3>
+            </div>
+            <button
+              class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface"
+              id="btn-close-product-modal">
+              <span class="material-symbols-outlined text-[20px]">close</span>
+            </button>
+          </div>
+          <div class="px-margin py-3 overflow-y-auto flex flex-col gap-space-md">
+            <div class="flex flex-col gap-1.5">
+              <label class="font-label-md text-label-md text-on-surface-variant font-medium">Nome do Produto</label>
+              <input
+                class="w-full px-3.5 py-2.5 bg-surface-container-low rounded-xl text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/40 focus:outline-none transition-all placeholder:text-outline border border-outline-variant/30"
+                id="input-prod-name" placeholder="Ex: Camiseta Básica Algodão..." type="text">
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="flex flex-col gap-1.5">
+                <label class="font-label-md text-label-md text-on-surface-variant font-medium">Estoque Total</label>
+                <div class="flex items-center bg-surface-container-low rounded-xl p-1 border border-outline-variant/30">
+                  <button
+                    class="w-8 h-8 rounded-lg bg-surface-container-lowest text-on-surface flex items-center justify-center hover:bg-surface-container shadow-xs active:scale-95"
+                    id="btn-qty-minus" type="button">
+                    <span class="material-symbols-outlined text-[16px]">remove</span>
+                  </button>
+                  <input
+                    class="w-full bg-transparent text-center font-headline-sm text-headline-sm font-bold text-on-surface focus:outline-none"
+                    id="input-prod-qty" min="0" type="number" value="10">
+                  <button
+                    class="w-8 h-8 rounded-lg bg-surface-container-lowest text-on-surface flex items-center justify-center hover:bg-surface-container shadow-xs active:scale-95"
+                    id="btn-qty-plus" type="button">
+                    <span class="material-symbols-outlined text-[16px]">add</span>
+                  </button>
+                </div>
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label class="font-label-md text-label-md text-on-surface-variant font-medium">Preço Unitário
+                  (R$)</label>
+                <div class="relative">
+                  <span
+                    class="absolute inset-y-0 left-0 pl-3 flex items-center text-on-surface-variant font-label-md text-label-md font-medium">R$</span>
+                  <input
+                    class="w-full pl-9 pr-3 py-2 bg-surface-container-low rounded-xl text-on-surface font-headline-sm text-headline-sm font-bold focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/40 focus:outline-none transition-all border border-outline-variant/30"
+                    id="input-prod-price" placeholder="0,00" step="0.50" type="number" value="50.00">
+                </div>
+              </div>
+            </div>
+            <!-- Resumo do Item -->
+            <div class="p-3.5 rounded-xl bg-surface-container flex flex-col gap-1">
+              <div class="flex items-center justify-between">
+                <span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Investimento no Item
+                  (Estoque × Preço)</span>
+                <span
+                  class="px-1.5 py-0.5 rounded bg-surface-container-lowest text-primary font-label-sm text-label-sm font-bold">Total</span>
+              </div>
+              <div class="font-headline-lg text-headline-lg font-bold text-primary">
+                R$ <span id="preview-prod-subtotal">500,00</span>
+              </div>
+              <div class="flex items-start gap-1.5 mt-1 text-on-surface-variant font-body-sm text-body-sm">
+                <span class="material-symbols-outlined text-[16px] text-primary shrink-0 mt-0.5">info</span>
+                <span id="text-business-rule">A alteração ou reposição de estoque do catálogo é realizada exclusivamente
+                  aqui.</span>
+              </div>
+            </div>
+          </div>
+          <!-- Modal Footer -->
+          <div
+            class="p-margin bg-surface-container-lowest flex items-center justify-end gap-2.5 border-t border-surface-container">
+            <button
+              class="px-4 py-2.5 rounded-xl bg-surface-container-high text-on-surface font-label-lg text-label-lg hover:bg-surface-variant transition-colors"
+              id="btn-cancel-product">
+              Cancelar
+            </button>
+            <button
+              class="px-5 py-2.5 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-sm hover:bg-on-primary-fixed-variant active:scale-95 transition-all flex items-center gap-1.5"
+              id="btn-save-product">
+              <span class="material-symbols-outlined text-[18px]">check</span>
+              <span id="btn-save-product-text">Confirmar Cadastro</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODAL B: Visualização e Conclusão de Venda (Checkout) -->
+      <div class="fixed inset-0 z-50 hidden transition-opacity duration-300" id="modal-view-sale">
+        <div class="absolute inset-0 bg-inverse-surface/40 backdrop-blur-sm" id="modal-view-sale-backdrop"></div>
+        <div
+          class="absolute bottom-0 inset-x-0 bg-surface-container-lowest rounded-t-2xl shadow-xl max-h-[90vh] flex flex-col overflow-hidden transform transition-transform duration-300 translate-y-full"
+          id="modal-view-sale-sheet">
+          <div class="w-12 h-1.5 bg-surface-variant rounded-full mx-auto mt-3"></div>
+          <!-- Header -->
+          <div class="px-margin py-space-sm flex items-center justify-between border-b border-surface-container">
+            <div>
+              <span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider">RESUMO DA
+                BAIXA</span>
+              <h3 class="font-headline-md text-headline-md font-bold text-on-surface">Conclusão de Venda</h3>
+            </div>
+            <button
+              class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface"
+              id="btn-close-view-sale">
+              <span class="material-symbols-outlined text-[20px]">close</span>
+            </button>
+          </div>
+
+          <!-- Content: Lista detalhada dos itens a dar baixa -->
+          <div class="px-margin py-3 overflow-y-auto flex flex-col gap-3">
+            <div class="flex items-center justify-between text-on-surface-variant font-label-sm">
+              <span>Itens selecionados para saída</span>
+              <span id="view-sale-items-count-badge" class="font-semibold text-primary">0 itens</span>
+            </div>
+
+            <!-- Tabela / Lista Detalhada -->
+            <div id="view-sale-items-list" class="flex flex-col gap-2">
+              <!-- Rendered by JS -->
+            </div>
+
+            <!-- Total Geral Card -->
+            <div
+              class="p-3.5 rounded-xl bg-surface-container-high/60 border border-outline-variant/30 flex flex-col gap-2 mt-1">
+              <div class="flex items-center justify-between">
+                <span class="font-label-md text-label-md text-on-surface-variant font-medium">Quantidade Total de
+                  Saída</span>
+                <span class="font-headline-sm text-headline-sm font-bold text-on-surface" id="view-sale-total-qty">0
+                  un</span>
+              </div>
+              <div class="h-px bg-outline-variant/30 my-0.5"></div>
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Total
+                    Geral</span>
+                  <p class="font-body-sm text-[12px] text-on-surface-variant">Valor total faturado no pedido</p>
+                </div>
+                <div class="text-right">
+                  <span class="font-headline-xl text-headline-xl font-bold text-primary" id="view-sale-grand-total">R$
+                    0,00</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Informação da Transação -->
+            <div
+              class="p-3 rounded-xl bg-surface-container-low flex items-start gap-2.5 text-body-sm text-on-surface-variant">
+              <span class="material-symbols-outlined text-secondary text-[20px] shrink-0 mt-0.5">receipt</span>
+              <p class="text-[12px] leading-relaxed">
+                Ao clicar em <strong>Confirmar</strong>, será gerado automaticamente o <strong>ID do pedido</strong>, as
+                quantidades serão subtraídas do estoque físico e registradas no <strong>Histórico de Vendas</strong>.
+              </p>
+            </div>
+          </div>
+
+          <!-- Footer Actions -->
+          <div
+            class="p-margin bg-surface-container-lowest flex items-center justify-end gap-2.5 border-t border-surface-container">
+            <button
+              class="px-4 py-2.5 rounded-xl bg-surface-container-high text-on-surface font-label-lg text-label-lg hover:bg-surface-variant transition-colors"
+              id="btn-cancel-view-sale">
+              Voltar
+            </button>
+            <button
+              class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-label-lg text-label-lg shadow-sm active:scale-95 transition-all flex items-center gap-1.5"
+              id="btn-confirm-order">
+              <span class="material-symbols-outlined text-[18px]">verified</span>
+              <span>Confirmar Venda</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODAL C: Histórico de Vendas com ID de Pedido -->
+      <div class="fixed inset-0 z-50 hidden transition-opacity duration-300" id="modal-history">
+        <div class="absolute inset-0 bg-inverse-surface/40 backdrop-blur-sm" id="modal-history-backdrop"></div>
+        <div
+          class="absolute bottom-0 inset-x-0 bg-surface-container-lowest rounded-t-2xl shadow-xl max-h-[88vh] flex flex-col overflow-hidden transform transition-transform duration-300 translate-y-full"
+          id="modal-history-sheet">
+          <div class="w-12 h-1.5 bg-surface-variant rounded-full mx-auto mt-3"></div>
+          <div class="px-margin py-space-sm flex items-center justify-between border-b border-surface-container">
+            <div>
+              <span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-wider">REGISTRO DE
+                SAÍDAS</span>
+              <h3 class="font-headline-md text-headline-md font-bold text-on-surface">Histórico de Vendas</h3>
+            </div>
+            <button
+              class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface"
+              id="btn-close-history">
+              <span class="material-symbols-outlined text-[20px]">close</span>
+            </button>
+          </div>
+
+          <div class="px-margin py-3 overflow-y-auto flex flex-col gap-3" id="history-container">
+            <!-- Pedidos registrados aparecerão aqui -->
+          </div>
+
+          <div class="p-margin bg-surface-container-lowest border-t border-surface-container flex justify-end">
+            <button class="px-4 py-2 rounded-xl bg-surface-container-high text-on-surface font-label-md"
+              id="btn-close-history-footer">
+              Fechar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notification Toast Container -->
+      <div
+        class="fixed top-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none transition-all duration-300 opacity-0 -translate-y-4 max-w-[92vw] w-max"
+        id="toast">
+        <div
+          class="px-4 py-2.5 rounded-xl bg-inverse-surface text-inverse-on-surface shadow-xl flex items-center gap-2.5 text-body-sm font-body-sm">
+          <span class="material-symbols-outlined text-tertiary-fixed-dim text-[20px]"
+            id="toast-icon">check_circle</span>
+          <span id="toast-message">Operação executada com sucesso!</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      // Master Products State
+      let products = [
+        { id: '001', name: 'Camiseta Básica Algodão Premium', price: 45.0, qty: 60 },
+        { id: '002', name: 'Tênis Runner Esportivo Pro', price: 180.0, qty: 25 },
+        { id: '003', name: 'Boné Trucker Vintage', price: 35.0, qty: 40 },
+        { id: '004', name: 'Garrafa Térmica Inox 750ml', price: 65.0, qty: 30 },
+        { id: '005', name: 'Mochila Urbana Impermeável', price: 140.0, qty: 22 },
+        { id: '006', name: 'Meia Cano Médio Pack 3x', price: 24.0, qty: 50 }
+      ];
+
+      // Selected items for sale checkout { productId: countToSell }
+      let pendingSales = {};
+
+      // Orders History Array
+      let salesHistory = [
+        {
+          orderId: 'PED-2025-0101',
+          timestamp: '15/03/2025 14:32',
+          items: [
+            { name: 'Camiseta Básica Algodão Premium', qty: 2, price: 45.0, subtotal: 90.0 }
+          ],
+          totalQty: 2,
+          grandTotal: 90.0
+        }
+      ];
+
+      let totalSalesRevenue = 8420.0;
+      let editingProductId = null;
+      let currentFilter = 'all';
+
+      function formatCurrency(val) {
+        return val.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      function updateMetrics() {
+        const totalInvested = products.reduce((acc, item) => acc + (item.price * item.qty), 0);
+        const totalUnits = products.reduce((acc, item) => acc + item.qty, 0);
+
+        document.getElementById('metric-total-invested').textContent = `R$ ${formatCurrency(totalInvested)}`;
+        document.getElementById('metric-total-units').textContent = `${totalUnits} un`;
+        document.getElementById('metric-total-sales').textContent = `R$ ${formatCurrency(totalSalesRevenue)}`;
+        document.getElementById('badge-products-count').textContent = `${products.length} produtos`;
+        document.getElementById('history-badge-count').textContent = salesHistory.length;
+      }
+
+      // Update Floating Bottom Bar
+      function updateFloatingBar() {
+        const bar = document.getElementById('floating-sale-bar');
+        const countDisplay = document.getElementById('floating-items-count');
+        const prodsCountDisplay = document.getElementById('floating-prods-count');
+        const totalDisplay = document.getElementById('floating-total-preview');
+
+        let totalSelectedUnits = 0;
+        let distinctProducts = 0;
+        let totalAmount = 0.0;
+
+        for (const [prodId, reduceQty] of Object.entries(pendingSales)) {
+          if (reduceQty > 0) {
+            const prod = products.find(p => p.id === prodId);
+            if (prod) {
+              distinctProducts += 1;
+              totalSelectedUnits += reduceQty;
+              totalAmount += (reduceQty * prod.price);
+            }
+          }
+        }
+
+        if (totalSelectedUnits > 0) {
+          countDisplay.textContent = `${totalSelectedUnits} ${totalSelectedUnits === 1 ? 'item selecionado' : 'itens selecionados'}`;
+          prodsCountDisplay.textContent = `${distinctProducts} ${distinctProducts === 1 ? 'produto' : 'produtos'}`;
+          totalDisplay.textContent = `R$ ${formatCurrency(totalAmount)}`;
+
+          bar.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+          bar.classList.add('translate-y-0', 'opacity-100');
+        } else {
+          bar.classList.remove('translate-y-0', 'opacity-100');
+          bar.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+        }
+      }
+
+      // Render Product Cards
+      function renderProductList(filterTerm = '') {
+        const container = document.getElementById('product-list');
+        const emptyState = document.getElementById('empty-state');
+        container.innerHTML = '';
+
+        let list = [...products];
+
+        // Filter by chip
+        if (currentFilter === 'critical') {
+          list = list.filter(p => p.qty <= 25);
+        } else if (currentFilter === 'regular') {
+          list = list.filter(p => p.qty > 25);
+        }
+
+        // Filter by search query
+        if (filterTerm.trim() !== '') {
+          const q = filterTerm.toLowerCase().trim();
+          list = list.filter(p => p.name.toLowerCase().includes(q) || p.id.toLowerCase().includes(q));
+        }
+
+        // Sort
+        const sortVal = document.getElementById('sort-select').value;
+        list.sort((a, b) => {
+          if (sortVal === 'name-asc') return a.name.localeCompare(b.name);
+          if (sortVal === 'name-desc') return b.name.localeCompare(a.name);
+          if (sortVal === 'qty-asc') return a.qty - b.qty;
+          if (sortVal === 'qty-desc') return b.qty - a.qty;
+          if (sortVal === 'price-asc') return a.price - b.price;
+          if (sortVal === 'price-desc') return b.price - a.price;
+          return 0;
+        });
+
+        if (list.length === 0) {
+          emptyState.classList.remove('hidden');
+          emptyState.classList.add('flex');
+          return;
+        } else {
+          emptyState.classList.add('hidden');
+          emptyState.classList.remove('flex');
+        }
+
+        list.forEach(prod => {
+          const subtotal = prod.price * prod.qty;
+          const selectedForSale = pendingSales[prod.id] || 0;
+          const availableStock = prod.qty - selectedForSale;
+          const isOutOfStock = availableStock <= 0;
+
+          const card = document.createElement('div');
+          card.className = `w-full bg-surface-container-lowest rounded-xl p-3.5 shadow-sm border transition-all hover:shadow-md ${selectedForSale > 0 ? 'border-primary/50 ring-1 ring-primary/20' : 'border-outline-variant/20'}`;
+
+          card.innerHTML = `
+          <div class="flex items-start justify-between gap-2">
+            <div class="flex items-start gap-2.5 min-w-0">
+              <span class="px-2 py-0.5 rounded bg-surface-container font-numerical-data text-label-sm font-semibold text-primary shrink-0">#${prod.id}</span>
+              <div class="min-w-0">
+                <h4 class="font-headline-sm text-headline-sm font-bold text-on-surface truncate">${prod.name}</h4>
+                <div class="flex items-center gap-2 mt-0.5 font-body-sm text-body-sm text-on-surface-variant">
+                  <span>Unit: <strong class="text-on-surface">R$ ${formatCurrency(prod.price)}</strong></span>
+                  <span>•</span>
+                  <span>Estoque: <strong class="${prod.qty <= 25 ? 'text-error' : 'text-on-surface'}">${prod.qty} un</strong></span>
+                </div>
+              </div>
+            </div>
+            <div class="text-right shrink-0">
+              <span class="font-label-sm text-label-sm text-on-surface-variant block">Em Estoque</span>
+              <span class="font-headline-sm text-headline-sm font-bold text-on-surface">R$ ${formatCurrency(subtotal)}</span>
+            </div>
+          </div>
+
+          <div class="pt-2.5 mt-1 border-t border-surface-container/60 flex items-center justify-between gap-2">
+            <!-- Redução Direta para Venda (-) -->
+            <div class="flex items-center gap-2">
+              <div class="flex items-center bg-surface-container-low rounded-lg p-0.5 border border-outline-variant/30">
+                <!-- Botão de Menos para saída de venda -->
+                <button data-action="decrease-sale" data-id="${prod.id}" class="w-8 h-8 rounded-md bg-surface-container-lowest text-on-surface flex items-center justify-center hover:bg-error hover:text-white shadow-2xs active:scale-95 transition-all ${isOutOfStock ? 'opacity-40 cursor-not-allowed' : ''}" title="Reduzir 1 unidade para Saída / Venda">
+                  <span class="material-symbols-outlined text-[16px]">remove</span>
+                </button>
+                <div class="px-2.5 py-1 text-center font-label-md text-label-md font-bold ${selectedForSale > 0 ? 'text-primary' : 'text-on-surface-variant'}">
+                  ${selectedForSale > 0 ? `<span class="text-error font-extrabold">-${selectedForSale}</span> p/ venda` : '0 p/ saída'}
+                </div>
+                ${selectedForSale > 0 ? `
+                  <button data-action="reset-item-sale" data-id="${prod.id}" class="w-6 h-6 rounded text-outline hover:text-on-surface flex items-center justify-center mr-0.5" title="Remover da seleção">
+                    <span class="material-symbols-outlined text-[14px]">undo</span>
+                  </button>
+                ` : ''}
+              </div>
+              <span class="font-label-sm text-[11px] ${prod.qty <= 25 ? 'text-error' : 'text-on-surface-variant'} font-medium">
+                ${availableStock <= 0 ? 'Sem estoque restante' : `${availableStock} un livres`}
+              </span>
+            </div>
+
+            <!-- Modificar e Excluir cadastral -->
+            <div class="flex items-center gap-1.5 shrink-0">
+              <!-- Botão Modificar (único local para adicionar estoque e alterar cadastro) -->
+              <button data-action="edit" data-id="${prod.id}" class="px-2.5 py-1.5 rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-variant font-label-md text-label-md font-semibold flex items-center gap-1 transition-colors" title="Modificar dados ou repor estoque">
+                <span class="material-symbols-outlined text-[15px]">edit</span>
+                <span>Modificar</span>
+              </button>
+
+              <!-- Botão Excluir -->
+              <button data-action="delete" data-id="${prod.id}" class="w-8 h-8 rounded-lg bg-surface-container-high text-error hover:bg-error-container hover:text-on-error-container flex items-center justify-center transition-colors" title="Excluir produto">
+                <span class="material-symbols-outlined text-[16px]">delete</span>
+              </button>
+            </div>
+          </div>
+        `;
+
+          container.appendChild(card);
+        });
+      }
+
+      function showToast(message, icon = 'check_circle') {
+        const toast = document.getElementById('toast');
+        const msgElem = document.getElementById('toast-message');
+        const iconElem = document.getElementById('toast-icon');
+
+        msgElem.textContent = message;
+        iconElem.textContent = icon;
+
+        toast.classList.remove('opacity-0', '-translate-y-4');
+        toast.classList.add('opacity-100', 'translate-y-0');
+
+        setTimeout(() => {
+          toast.classList.remove('opacity-100', 'translate-y-0');
+          toast.classList.add('opacity-0', '-translate-y-4');
+        }, 3500);
+      }
+
+      // Modal Utilities
+      function openModal(modalId, sheetId) {
+        const modal = document.getElementById(modalId);
+        const sheet = document.getElementById(sheetId);
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+          sheet.classList.remove('translate-y-full');
+        }, 10);
+      }
+
+      function closeModal(modalId, sheetId) {
+        const modal = document.getElementById(modalId);
+        const sheet = document.getElementById(sheetId);
+        sheet.classList.add('translate-y-full');
+        setTimeout(() => {
+          modal.classList.add('hidden');
+        }, 250);
+      }
+
+      // Modal A: Modificar / Adicionar Cadastro
+      function updateProductPreviewSubtotal() {
+        const qty = parseInt(document.getElementById('input-prod-qty').value, 10) || 0;
+        const price = parseFloat(document.getElementById('input-prod-price').value) || 0;
+        const subtotal = qty * price;
+        document.getElementById('preview-prod-subtotal').textContent = formatCurrency(subtotal);
+      }
+
+      function openCreateProductModal() {
+        editingProductId = null;
+        document.getElementById('product-modal-title').textContent = 'Novo Produto';
+        document.getElementById('product-modal-subtitle').textContent = 'CADASTRO DE ESTOQUE';
+        document.getElementById('btn-save-product-text').textContent = 'Confirmar Cadastro';
+        document.getElementById('text-business-rule').textContent = 'A adição de novo estoque e alteração cadastral é realizada exclusivamente aqui.';
+
+        document.getElementById('input-prod-name').value = '';
+        document.getElementById('input-prod-qty').value = '10';
+        document.getElementById('input-prod-price').value = '50.00';
+        updateProductPreviewSubtotal();
+
+        openModal('modal-product', 'modal-product-sheet');
+      }
+
+      function openEditProductModal(id) {
+        const prod = products.find(p => p.id === id);
+        if (!prod) return;
+
+        editingProductId = id;
+        document.getElementById('product-modal-title').textContent = 'Modificar Produto';
+        document.getElementById('product-modal-subtitle').textContent = `EDITANDO ITEM #${prod.id}`;
+        document.getElementById('btn-save-product-text').textContent = 'Salvar Alterações';
+        document.getElementById('text-business-rule').textContent = 'Atualize quantidade (adição/reposição de estoque) e valores do produto.';
+
+        document.getElementById('input-prod-name').value = prod.name;
+        document.getElementById('input-prod-qty').value = prod.qty;
+        document.getElementById('input-prod-price').value = prod.price.toFixed(2);
+        updateProductPreviewSubtotal();
+
+        openModal('modal-product', 'modal-product-sheet');
+      }
+
+      // Modal B: Visualizar e Concluir Venda (Checkout)
+      function openViewSaleModal() {
+        const listContainer = document.getElementById('view-sale-items-list');
+        listContainer.innerHTML = '';
+
+        let totalSelectedUnits = 0;
+        let grandTotal = 0.0;
+
+        const entries = Object.entries(pendingSales).filter(([_, qty]) => qty > 0);
+
+        if (entries.length === 0) {
+          showToast('Nenhum item selecionado para saída!', 'info');
+          return;
+        }
+
+        entries.forEach(([id, qty]) => {
+          const prod = products.find(p => p.id === id);
+          if (!prod) return;
+
+          const subtotal = qty * prod.price;
+          totalSelectedUnits += qty;
+          grandTotal += subtotal;
+
+          const itemRow = document.createElement('div');
+          itemRow.className = 'p-3 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-center justify-between gap-2';
+
+          itemRow.innerHTML = `
+          <div class="min-w-0 flex-1">
+            <div class="flex items-center gap-1.5">
+              <span class="px-1.5 py-0.2 rounded bg-surface-container font-mono text-[11px] font-semibold text-primary">#${prod.id}</span>
+              <h5 class="font-headline-sm text-headline-sm font-bold text-on-surface truncate">${prod.name}</h5>
+            </div>
+            <div class="flex items-center gap-2 mt-1 text-body-sm text-on-surface-variant">
+              <span>Qtd reduzida: <strong class="text-error font-bold">${qty} un</strong></span>
+              <span>•</span>
+              <span>Preço unit: <strong class="text-on-surface">R$ ${formatCurrency(prod.price)}</strong></span>
+            </div>
+          </div>
+          <div class="text-right shrink-0">
+            <span class="font-label-sm text-[11px] text-on-surface-variant block">Subtotal</span>
+            <span class="font-headline-sm text-headline-sm font-bold text-on-surface">R$ ${formatCurrency(subtotal)}</span>
+          </div>
+        `;
+
+          listContainer.appendChild(itemRow);
+        });
+
+        document.getElementById('view-sale-items-count-badge').textContent = `${entries.length} ${entries.length === 1 ? 'produto' : 'produtos'}`;
+        document.getElementById('view-sale-total-qty').textContent = `${totalSelectedUnits} un`;
+        document.getElementById('view-sale-grand-total').textContent = `R$ ${formatCurrency(grandTotal)}`;
+
+        openModal('modal-view-sale', 'modal-view-sale-sheet');
+      }
+
+      // Modal C: Histórico de Vendas
+      function renderHistoryList() {
+        const container = document.getElementById('history-container');
+        container.innerHTML = '';
+
+        if (salesHistory.length === 0) {
+          container.innerHTML = `
+          <div class="text-center py-8 text-on-surface-variant">
+            <span class="material-symbols-outlined text-[36px] text-outline">history_toggle_off</span>
+            <p class="font-headline-sm text-headline-sm font-semibold mt-2">Nenhum pedido finalizado ainda</p>
+            <p class="font-body-sm text-body-sm">Reduza itens no estoque e confirme a venda para registrar pedidos.</p>
+          </div>
+        `;
+          return;
+        }
+
+        salesHistory.forEach(order => {
+          const orderCard = document.createElement('div');
+          orderCard.className = 'p-3.5 rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-xs flex flex-col gap-2.5';
+
+          let itemsHtml = order.items.map(item => `
+          <div class="flex items-center justify-between text-body-sm py-1 border-b border-surface-container/60 last:border-b-0">
+            <div class="min-w-0">
+              <span class="font-medium text-on-surface">${item.name}</span>
+              <span class="text-on-surface-variant block text-[12px]">${item.qty} un × R$ ${formatCurrency(item.price)}</span>
+            </div>
+            <span class="font-semibold text-on-surface shrink-0">R$ ${formatCurrency(item.subtotal)}</span>
+          </div>
+        `).join('');
+
+          orderCard.innerHTML = `
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-mono text-label-sm font-bold">${order.orderId}</span>
+              <span class="text-[12px] text-on-surface-variant font-medium">${order.timestamp}</span>
+            </div>
+            <span class="font-headline-sm text-headline-sm font-bold text-emerald-600">R$ ${formatCurrency(order.grandTotal)}</span>
+          </div>
+
+          <div class="bg-surface-container-low rounded-lg p-2.5">
+            ${itemsHtml}
+          </div>
+
+          <div class="flex items-center justify-between text-[12px] text-on-surface-variant">
+            <span>Total de itens baixados: <strong>${order.totalQty} un</strong></span>
+            <span class="text-emerald-700 font-semibold flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Baixa Concluída
+            </span>
+          </div>
+        `;
+
+          container.appendChild(orderCard);
+        });
+      }
+
+      // EVENT LISTENERS & LIFECYCLE
+      document.addEventListener('DOMContentLoaded', () => {
+        renderProductList();
+        updateMetrics();
+        updateFloatingBar();
+
+        // Search & Clear
+        const searchInput = document.getElementById('search-input');
+        const clearSearchBtn = document.getElementById('btn-clear-search');
+
+        searchInput.addEventListener('input', (e) => {
+          const val = e.target.value;
+          if (val.length > 0) clearSearchBtn.classList.remove('hidden');
+          else clearSearchBtn.classList.add('hidden');
+          renderProductList(val);
+        });
+
+        clearSearchBtn.addEventListener('click', () => {
+          searchInput.value = '';
+          clearSearchBtn.classList.add('hidden');
+          renderProductList('');
+        });
+
+        // Sort Select
+        document.getElementById('sort-select').addEventListener('change', () => {
+          renderProductList(searchInput.value);
+        });
+
+        // Filter Chips
+        document.querySelectorAll('#filter-chips .filter-chip').forEach(chip => {
+          chip.addEventListener('click', () => {
+            document.querySelectorAll('#filter-chips .filter-chip').forEach(c => {
+              c.classList.remove('bg-primary', 'text-on-primary', 'shadow-xs');
+              c.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+            });
+            chip.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+            chip.classList.add('bg-primary', 'text-on-primary', 'shadow-xs');
+            currentFilter = chip.getAttribute('data-filter');
+            renderProductList(searchInput.value);
+          });
+        });
+
+        // Open Modal A (Novo Produto)
+        document.getElementById('btn-open-create-modal').addEventListener('click', openCreateProductModal);
+        document.getElementById('btn-close-product-modal').addEventListener('click', () => closeModal('modal-product', 'modal-product-sheet'));
+        document.getElementById('btn-cancel-product').addEventListener('click', () => closeModal('modal-product', 'modal-product-sheet'));
+        document.getElementById('modal-product-backdrop').addEventListener('click', () => closeModal('modal-product', 'modal-product-sheet'));
+
+        // Modal A: Stepper buttons
+        document.getElementById('btn-qty-minus').addEventListener('click', () => {
+          const input = document.getElementById('input-prod-qty');
+          let val = parseInt(input.value, 10) || 0;
+          if (val > 0) {
+            input.value = val - 1;
+            updateProductPreviewSubtotal();
+          }
+        });
+        document.getElementById('btn-qty-plus').addEventListener('click', () => {
+          const input = document.getElementById('input-prod-qty');
+          let val = parseInt(input.value, 10) || 0;
+          input.value = val + 1;
+          updateProductPreviewSubtotal();
+        });
+        document.getElementById('input-prod-qty').addEventListener('input', updateProductPreviewSubtotal);
+        document.getElementById('input-prod-price').addEventListener('input', updateProductPreviewSubtotal);
+
+        // Save/Update Product
+        document.getElementById('btn-save-product').addEventListener('click', () => {
+          const name = document.getElementById('input-prod-name').value.trim();
+          const qty = parseInt(document.getElementById('input-prod-qty').value, 10);
+          const price = parseFloat(document.getElementById('input-prod-price').value);
+
+          if (!name) {
+            showToast('Preencha o nome do produto!', 'warning');
+            return;
+          }
+          if (isNaN(qty) || qty < 0) {
+            showToast('Quantidade inválida!', 'warning');
+            return;
+          }
+          if (isNaN(price) || price <= 0) {
+            showToast('Preço unitário inválido!', 'warning');
+            return;
+          }
+
+          if (editingProductId) {
+            const prodIndex = products.findIndex(p => p.id === editingProductId);
+            if (prodIndex > -1) {
+              products[prodIndex].name = name;
+              products[prodIndex].qty = qty;
+              products[prodIndex].price = price;
+              // Clean up any pending sale that exceeds new stock
+              if (pendingSales[editingProductId] && pendingSales[editingProductId] > qty) {
+                pendingSales[editingProductId] = qty;
+              }
+              showToast(`Produto #${editingProductId} modificado com sucesso!`);
+            }
+          } else {
+            const nextId = String(products.length + 1).padStart(3, '0');
+            products.unshift({ id: nextId, name, price, qty });
+            showToast(`Produto #${nextId} cadastrado no estoque!`);
+          }
+
+          closeModal('modal-product', 'modal-product-sheet');
+          renderProductList(searchInput.value);
+          updateMetrics();
+          updateFloatingBar();
+        });
+
+        // Delegated actions on Product List (Botão Menos, Modificar, Excluir)
+        document.getElementById('product-list').addEventListener('click', (e) => {
+          const btn = e.target.closest('button[data-action]');
+          if (!btn) return;
+
+          const action = btn.getAttribute('data-action');
+          const id = btn.getAttribute('data-id');
+          const prod = products.find(p => p.id === id);
+          if (!prod) return;
+
+          if (action === 'decrease-sale') {
+            // Ajuste de quantidade na tabela: apenas botão de menos (-) para reduzir estoque e destinar à venda
+            const currentReduced = pendingSales[id] || 0;
+            if (currentReduced < prod.qty) {
+              pendingSales[id] = currentReduced + 1;
+              renderProductList(searchInput.value);
+              updateFloatingBar();
+              showToast(`-${pendingSales[id]} un de "${prod.name}" adicionado para saída.`, 'shopping_cart');
+            } else {
+              showToast(`Estoque esgotado para "${prod.name}"!`, 'warning');
+            }
+          } else if (action === 'reset-item-sale') {
+            delete pendingSales[id];
+            renderProductList(searchInput.value);
+            updateFloatingBar();
+            showToast(`Saída de "${prod.name}" cancelada.`, 'undo');
+          } else if (action === 'edit') {
+            // Alteração cadastral e adição de estoque exclusiva via Modificar
+            openEditProductModal(id);
+          } else if (action === 'delete') {
+            const confirmDelete = window.confirm(`Deseja remover "${prod.name}" do estoque?`);
+            if (confirmDelete) {
+              delete pendingSales[id];
+              products = products.filter(p => p.id !== id);
+              renderProductList(searchInput.value);
+              updateMetrics();
+              updateFloatingBar();
+              showToast(`Item #${id} excluído!`, 'delete');
+            }
+          }
+        });
+
+        // Clear Floating Selection
+        document.getElementById('btn-clear-selection').addEventListener('click', () => {
+          pendingSales = {};
+          renderProductList(searchInput.value);
+          updateFloatingBar();
+          showToast('Seleção de saída zerada.', 'restart_alt');
+        });
+
+        // Open View / Checkout Modal
+        document.getElementById('btn-open-view-modal').addEventListener('click', openViewSaleModal);
+        document.getElementById('btn-close-view-sale').addEventListener('click', () => closeModal('modal-view-sale', 'modal-view-sale-sheet'));
+        document.getElementById('btn-cancel-view-sale').addEventListener('click', () => closeModal('modal-view-sale', 'modal-view-sale-sheet'));
+        document.getElementById('modal-view-sale-backdrop').addEventListener('click', () => closeModal('modal-view-sale', 'modal-view-sale-sheet'));
+
+        // Confirm Order & Baixa
+        document.getElementById('btn-confirm-order').addEventListener('click', () => {
+          const entries = Object.entries(pendingSales).filter(([_, qty]) => qty > 0);
+          if (entries.length === 0) {
+            showToast('Nenhum item na lista para concluir!', 'warning');
+            return;
+          }
+
+          // Generate unique Order ID
+          const now = new Date();
+          const orderIdNumber = Math.floor(1000 + Math.random() * 9000);
+          const orderId = `PED-${now.getFullYear()}-${orderIdNumber}`;
+          const timestamp = now.toLocaleDateString('pt-BR') + ' ' + now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+
+          let orderItems = [];
+          let orderTotalQty = 0;
+          let orderGrandTotal = 0.0;
+
+          // Apply automatic stock deduction & calculate totals
+          entries.forEach(([id, qty]) => {
+            const prodIndex = products.findIndex(p => p.id === id);
+            if (prodIndex > -1) {
+              const prod = products[prodIndex];
+              const deduction = Math.min(qty, prod.qty);
+              const subtotal = deduction * prod.price;
+
+              prod.qty -= deduction;
+              orderTotalQty += deduction;
+              orderGrandTotal += subtotal;
+
+              orderItems.push({
+                id: prod.id,
+                name: prod.name,
+                qty: deduction,
+                price: prod.price,
+                subtotal: subtotal
+              });
+            }
+          });
+
+          // Update Sales Revenue
+          totalSalesRevenue += orderGrandTotal;
+
+          // Add to Sales History
+          salesHistory.unshift({
+            orderId,
+            timestamp,
+            items: orderItems,
+            totalQty: orderTotalQty,
+            grandTotal: orderGrandTotal
+          });
+
+          // Reset pending sales
+          pendingSales = {};
+
+          closeModal('modal-view-sale', 'modal-view-sale-sheet');
+          renderProductList(searchInput.value);
+          updateMetrics();
+          updateFloatingBar();
+
+          showToast(`Pedido ${orderId} concluído! Baixa realizada (+R$ ${formatCurrency(orderGrandTotal)}).`, 'verified');
+        });
+
+        // History Modal
+        document.getElementById('btn-toggle-history').addEventListener('click', () => {
+          renderHistoryList();
+          openModal('modal-history', 'modal-history-sheet');
+        });
+        document.getElementById('btn-close-history').addEventListener('click', () => closeModal('modal-history', 'modal-history-sheet'));
+        document.getElementById('btn-close-history-footer').addEventListener('click', () => closeModal('modal-history', 'modal-history-sheet'));
+        document.getElementById('modal-history-backdrop').addEventListener('click', () => closeModal('modal-history', 'modal-history-sheet'));
+      });
+    })();
+  </script>
+</body>
+
+</html>

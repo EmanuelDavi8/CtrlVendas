@@ -1,0 +1,86 @@
+.
+├── controle-vendas-front
+│   ├── index.html
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── src
+│   │   ├── App.jsx
+│   │   ├── components
+│   │   │   ├── BrandHeader.jsx
+│   │   │   ├── Dashboard.jsx
+│   │   │   ├── InitialActions.jsx
+│   │   │   ├── LeftPanel.jsx
+│   │   │   ├── LoginForm.jsx
+│   │   │   ├── PasswordField.jsx
+│   │   │   ├── RegisterForm.jsx
+│   │   │   ├── TelaEstoque.html
+│   │   │   ├── TelaEstoque.jsx
+│   │   │   ├── TelaHistorico.html
+│   │   │   └── TelaHistorico.jsx
+│   │   ├── index.css
+│   │   ├── main.jsx
+│   │   └── utils
+│   │       └── masks.js
+│   └── vite.config.js
+├── estrutura.txt
+├── pom.xml
+├── src
+│   └── main
+│       ├── java
+│       │   └── com
+│       │       └── vendas
+│       │           ├── controller
+│       │           │   ├── ProdutoController.java
+│       │           │   ├── UsuarioController.java
+│       │           │   └── VendaController.java
+│       │           ├── modelo
+│       │           │   ├── ProdutoModelo.java
+│       │           │   ├── UsuarioModelo.java
+│       │           │   ├── VendaItemModelo.java
+│       │           │   └── VendaModelo.java
+│       │           ├── repository
+│       │           │   ├── ProdutoRepository.java
+│       │           │   ├── UsuarioRepository.java
+│       │           │   └── VendaRepository.java
+│       │           └── VendasApplication.java
+│       └── resources
+│           ├── application.properties
+│           └── static
+│               └── index.html
+└── target
+    ├── classes
+    │   ├── application.properties
+    │   ├── com
+    │   │   └── vendas
+    │   │       ├── controller
+    │   │       │   ├── ProdutoController.class
+    │   │       │   ├── UsuarioController.class
+    │   │       │   └── VendaController.class
+    │   │       ├── modelo
+    │   │       │   ├── ProdutoModelo.class
+    │   │       │   ├── UsuarioModelo.class
+    │   │       │   ├── VendaItemModelo.class
+    │   │       │   └── VendaModelo.class
+    │   │       ├── repository
+    │   │       │   ├── ProdutoRepository.class
+    │   │       │   ├── UsuarioRepository.class
+    │   │       │   └── VendaRepository.class
+    │   │       └── VendasApplication.class
+    │   └── static
+    │       └── index.html
+    ├── ControleVendas-0.0.1-SNAPSHOT.jar
+    ├── ControleVendas-0.0.1-SNAPSHOT.jar.original
+    ├── generated-sources
+    │   └── annotations
+    ├── generated-test-sources
+    │   └── test-annotations
+    ├── maven-archiver
+    │   └── pom.properties
+    └── maven-status
+        └── maven-compiler-plugin
+            └── compile
+                └── default-compile
+                    ├── createdFiles.lst
+                    └── inputFiles.lst
+
+31 directories, 52 files
