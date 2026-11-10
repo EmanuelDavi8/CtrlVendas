@@ -9,7 +9,7 @@ import InitialActions from './components/InitialActions'
 import LoginForm from './components/LoginForm'
 import RegisterForm from './components/RegisterForm'
 
-// URL oficial do seu back-end hospedado no Render
+
 const API_BASE = 'https://ctrlvendas-back.onrender.com/api'
 
 function mapProdutoFromApi(p) {
