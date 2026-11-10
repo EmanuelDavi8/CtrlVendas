@@ -26,7 +26,7 @@ public class DestaqueController {
     /**
      * Endpoint to obtain the top seller excluding administrators.
      */
-        @GetMapping("/destaque")
+    @GetMapping("/destaque")
     public ResponseEntity<?> obterDestaqueVendas(@RequestParam(value = "date", required = false) String dateStr) {
         try {
             List<VendaModelo> todasVendas = vendaRepository.findAll();
@@ -48,7 +48,8 @@ public class DestaqueController {
                     continue;
                 }
                 String nomeVendedor = v.getNomeVendedor();
-                if (nomeVendedor == null || nomeVendedor.isBlank()) continue;
+                if (nomeVendedor == null || nomeVendedor.isBlank())
+                    continue;
                 String nomeLower = nomeVendedor.toLowerCase();
                 if (nomeLower.contains("admin") || nomeLower.contains("administrador")) {
                     continue; // extra safety

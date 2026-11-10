@@ -13,7 +13,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/produtos")
-@CrossOrigin(origins = "*")
 public class ProdutoController {
 
     private final ProdutoRepository produtoRepository;
@@ -29,7 +28,7 @@ public class ProdutoController {
         return produtoRepository.findAll();
     }
 
-@GetMapping("/usuario/{usuarioId}")
+    @GetMapping("/usuario/{usuarioId}")
     public List<ProdutoModelo> listarPorUsuario(@PathVariable Long usuarioId) {
         UsuarioModelo usuario = usuarioRepository.findById(usuarioId).orElse(null);
 
