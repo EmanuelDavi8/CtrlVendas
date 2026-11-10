@@ -44,7 +44,7 @@ function LoginForm({
     })
 
     try {
-      const res = await fetch('http://localhost:8080/api/usuarios/login', {
+      const res = await fetch(`${API_BASE}/usuarios/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -159,10 +159,10 @@ function LoginForm({
           <div
             id="login-feedback"
             className={`text-xs py-3 px-3.5 border-l-4 flex items-center gap-2.5 transition-all ${feedback.type === 'erro'
-                ? isPendingState
-                  ? 'bg-amber-50 text-amber-800 border-amber-500'
-                  : 'bg-red-50 text-red-700 border-red-500'
-                : 'bg-blue-50 text-[#1e40af] border-blue-600'
+              ? isPendingState
+                ? 'bg-amber-50 text-amber-800 border-amber-500'
+                : 'bg-red-50 text-red-700 border-red-500'
+              : 'bg-blue-50 text-[#1e40af] border-blue-600'
               }`}
           >
             {isPendingState && (

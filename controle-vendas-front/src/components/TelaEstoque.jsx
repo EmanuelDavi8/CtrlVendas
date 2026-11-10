@@ -256,8 +256,7 @@ export default function TelaEstoque({
                 const response = await axios.post('/api/vendas', salePayload)
                 createdOrderId = response.data?.orderId || orderId
             } catch (proxyErr) {
-                const response = await axios.post('http://localhost:8080/api/vendas', salePayload)
-                createdOrderId = response.data?.orderId || orderId
+                const response = await axios.post(`${API_BASE}/vendas`, salePayload); createdOrderId = response.data?.orderId || orderId
             }
 
             setSelectedQuantities({})
