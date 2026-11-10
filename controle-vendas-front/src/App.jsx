@@ -9,7 +9,8 @@ import InitialActions from './components/InitialActions'
 import LoginForm from './components/LoginForm'
 import RegisterForm from './components/RegisterForm'
 
-const API_BASE = '/api'
+// URL oficial do seu back-end hospedado no Render
+const API_BASE = 'https://ctrlvendas-back.onrender.com/api'
 
 function mapProdutoFromApi(p) {
   const uId = p.usuarioId != null ? Number(p.usuarioId) : (p.userId != null ? Number(p.userId) : (p.usuario?.id != null ? Number(p.usuario.id) : null))
@@ -128,7 +129,6 @@ export default function App() {
     }
   }
 
-  // BLINDAGEM DE NAVEGAÇÃO: Impede que vendedores acessem telas restritas como 'graficos'[cite: 6]
   const handleNavigate = (screen) => {
     const isAdmin =
       user?.tipo === 'ADMIN' ||
